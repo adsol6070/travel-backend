@@ -1,0 +1,79 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output files (e.g., compiled binaries)
+bin/
+cmd/api/api
+cmd/api/*.exe
+
+# Go vendor directory (if using dep or older Go versions)
+vendor/
+
+# Logs
+*.log
+log/
+
+# Configuration files and secrets
+.env
+config.yaml
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Test output
+test/*.out
+*.test
+
+# Dependency directories
+node_modules/
+
+# Generated files
+*.gen.go
+
+# Coverage files
+*.cover
+*.cov
+coverage.out
+coverage/
+
+# Build artifacts
+*.o
+*.a
+
+# Temp files
+tmp/
+*.tmp
+*.temp
+
+# Docker and CI/CD
+docker-compose.override.yml
+.env.production
+.env.development
+.env.local
+.env.*
+
+# AWS deployment artifacts
+deployments/aws-lambda/*.zip
+deployments/aws-lambda/*.log
+
+# Go mod cache (if using Go modules)
+go.sum.old
+
+# Editor-specific temp files
+*.bak
+*.orig
+
+# System-wide temp files
+*.tmp
+*.temp
