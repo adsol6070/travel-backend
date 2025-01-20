@@ -2,7 +2,6 @@ package customConfig
 
 import (
 	"log"
-	"os"
 
 	"github.com/spf13/viper"
 )
@@ -22,24 +21,26 @@ type Config struct {
 var AppConfig *Config
 
 func LoadConfig() {
-	// viper.SetConfigName("config")
-	// viper.SetConfigType("yaml")
-	// viper.AddConfigPath(("./config"))
-
+	// Automatically read environment variables
 	viper.AutomaticEnv()
 
-	// if err := viper.ReadInConfig(); err != nil {
-	// 	log.Fatalf("Error reading config file: %v", err)
-	// }
+	// Read .env file if it exists
+	viper.SetConfigFile(".env")
+	err := viper.ReadInConfig()
+	if err != nil {
+		log.Printf("No .env file found, falling back to system environment variables: %v", err)
+	}
 
+	// Initialize AppConfig
 	AppConfig = &Config{}
 	if err := viper.Unmarshal(AppConfig); err != nil {
-		log.Fatalf("Error unmarshalling config file: %v", err)
+		log.Fatalf("Error unmarshalling config: %v", err)
 	}
 
 	// Set AWS Credentials from Environment Variables
-	AppConfig.AWS.Region = os.Getenv("AWS_REGION")
-	AppConfig.AWS.AccessKeyID = os.Getenv("AWS_ACCESS_KEY_ID")
-	AppConfig.AWS.SecretAccessKey = os.Getenv("AWS_SECRET_ACCESS_KEY")
+	AppConfig.AWS.Region = viper.GetString("AWS_REGION")
+	AppConfig.AWS.AccessKeyID = viper.GetString("AWS_ACCESS_KEY_ID")
+	AppConfig.AWS.SecretAccessKey = viper.GetString("AWS_SECRET_ACCESS_KEY")
+
 	log.Println("Configuration loaded successfully.")
 }

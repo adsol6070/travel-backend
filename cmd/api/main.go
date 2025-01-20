@@ -16,6 +16,8 @@ import (
 func main() {
 	customConfig.LoadConfig()
 
+	log.Println("Accessing loaded configuration:")
+
 	dbClient := dynamodb.NewDynamoDBClient()
 
 	// Initialize repositories
