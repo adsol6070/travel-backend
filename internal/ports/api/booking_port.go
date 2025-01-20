@@ -8,4 +8,6 @@ type BookingService interface {
 	CreateBooking(booking *models.Booking) error
 	UpdateBookingStatus(id string, status string) error
 	GetBookingsByUserID(userID string) ([]models.Booking, error)
+	DeleteBooking(id string) error
+	UpdateBooking(id string, booking *models.Booking) (*models.Booking, error)
 }

@@ -7,5 +7,7 @@ type FlightService interface {
 	GetFlightByID(id string) (*models.Flight, error)
 	CreateFlight(flight *models.Flight) error
 	GetFlightBookings(flightID string) ([]models.Booking, error)
-	GetAvailableSeats(flightID string) ([]models.Seat, error)
+	// GetAvailableSeats(flightID string) ([]models.Seat, error)
+	UpdateFlight(id string, flight *models.Flight) (*models.Flight, error)
+	DeleteFlight(id string) error
 }

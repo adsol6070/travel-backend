@@ -8,18 +8,18 @@ type Asset struct {
 }
 
 type Hotel struct {
-	BookingID         string    `json:"bookingID"`
-	HotelID           string    `json:"hotelID"`
-	UserID            string    `json:"userID"`
-	CheckInDate       time.Time `json:"checkInDate"`
-	CheckOutDate      time.Time `json:"checkOutDate"`
-	IsCheckinFlexible bool      `json:"isCheckinFlexible"`
-	BookingStatus     string    `json:"bookingStatus"`
-	CreatedAt         time.Time `json:"createdAt"`
-	UpdatedAt         time.Time `json:"updatedAt"`
-	PaymentStatus     string    `json:"paymentStatus"`
-	RoomType          string    `json:"roomType"`
-	NumberOfGuests    int       `json:"numberOfGuests"`
-	SpecialRequests   string    `json:"specialRequests"`
-	Assets            []Asset   `json:"assets"`
+	HotelID           string    `json:"hotelID" dynamodbav:"hotelID"`
+	BookingID         string    `json:"bookingID" dynamodbav:"bookingID"`
+	UserID            string    `json:"userID" dynamodbav:"userID"`
+	CheckInDate       time.Time `json:"checkInDate" dynamodbav:"checkInDate"`
+	CheckOutDate      time.Time `json:"checkOutDate" dynamodbav:"checkOutDate"`
+	IsCheckinFlexible bool      `json:"isCheckinFlexible" dynamodbav:"isCheckinFlexible"`
+	BookingStatus     string    `json:"bookingStatus" dynamodbav:"bookingStatus"`
+	CreatedAt         time.Time `json:"createdAt" dynamodbav:"createdAt"`
+	UpdatedAt         time.Time `json:"updatedAt" dynamodbav:"updatedAt"`
+	PaymentStatus     string    `json:"paymentStatus" dynamodbav:"paymentStatus"`
+	RoomType          string    `json:"roomType" dynamodbav:"roomType"`
+	NumberOfGuests    int       `json:"numberOfGuests" dynamodbav:"numberOfGuests"`
+	SpecialRequests   string    `json:"specialRequests" dynamodbav:"specialRequests"`
+	Assets            []Asset   `json:"assets" dynamodbav:"assets"`
 }

@@ -10,6 +10,8 @@ type HotelRepository interface {
 	GetHotelByID(id string) (*models.Hotel, error)
 	CreateHotel(hotel *models.Hotel) error
 	GetHotelBookings(hotelID string) ([]models.Booking, error)
+	UpdateHotel(id string, hotel *models.Hotel) (*models.Hotel, error)
+	DeleteHotel(id string) error
 }
 
 type FlightRepository interface {
@@ -17,7 +19,9 @@ type FlightRepository interface {
 	GetFlightByID(id string) (*models.Flight, error)
 	CreateFlight(flight *models.Flight) error
 	GetFlightBookings(flightID string) ([]models.Booking, error)
-	GetAvailableSeats(flightID string) ([]models.Seat, error)
+	// GetAvailableSeats(flightID string) ([]models.Seat, error)
+	UpdateFlight(id string, flight *models.Flight) (*models.Flight, error)
+	DeleteFlight(id string) error
 }
 
 type BookingRepository interface {
@@ -26,6 +30,8 @@ type BookingRepository interface {
 	CreateBooking(booking *models.Booking) error
 	UpdateBookingStatus(id string, status string) error
 	GetBookingsByUserID(userID string) ([]models.Booking, error)
+	UpdateBooking(id string, booking *models.Booking) (*models.Booking, error)
+	DeleteBooking(id string) error
 }
 
 type PassengerRepository interface {
